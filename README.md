@@ -1,4 +1,4 @@
-# douban_spdier-
+# douban_spider-
 top250 next_pag获取
 # -*- coding: utf-8 -*-
 import scrapy
