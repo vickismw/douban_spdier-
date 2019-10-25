@@ -59,4 +59,6 @@ from scrapy.cmdline import execute
 
 execute("spider crawl douban_spider".split(' '))
 
+＃用户代理，user_agent_middlewares.py  
 
+＃云打码，proxy_middlewares.py，自行注册云打码账号.
