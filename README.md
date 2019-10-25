@@ -33,11 +33,30 @@ class DoubanSpiderSpider(scrapy.Spider):
             # 手动发送请求,让爬虫去解析下一页的数据 (ajax)
             yield scrapy.Request(url = 'http://movie.douban.com/top250' + next_page,callback=self.parse)
         except:
-            print('下载完毕.......')
+            print（'下载完毕.......'）
+＃如下请自配置-settings.py文件
 
+BOT_NAME = 'douban'
+
+SPIDER_MODULES = ['douban.spiders']
+
+NEWSPIDER_MODULE = 'douban.spiders'
+
+ROBOTSTXT_OBEY =False
+
+
+DEFAULT_REQUEST_HEADERS = {
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en',}
+  
+  ITEM_PIPELINES = {
+    'douban.pipelines.MysqlPipeline': 1,}
+  
 
 ＃在scrapy框架下在新建main.py表，配置获取douban_spider内容
 
 from scrapy.cmdline import execute
 
 execute("spider crawl douban_spider".split(' '))
+
+
